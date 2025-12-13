@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export function Footer() {
   return (
@@ -7,9 +8,11 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-            <span className="text-2xl font-bold text-[#5C4DFF]">
-            <Image src="/new%20images/logo.svg" alt={"logo"} width={78} height={78}/>
-            </span>
+            <Link href="/">
+              <span className="text-2xl font-bold text-[#5C4DFF]">
+                <Image src="/new%20images/logo.svg" alt={"logo"} width={78} height={78}/>
+              </span>
+            </Link>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
             Global Team Builders is your fastest route to wealth, health & global success. Join the global team partnered with S.B.I and tap into the revolutionary Stem Cell Activator movement.
@@ -73,23 +76,7 @@ export function Footer() {
             <p className="text-muted-foreground text-sm">Copyright@GlobalTeamBuilders2025, All right reserved</p>
             </div>
 
-            <div className="flex justify-center items-center space-x-8 opacity-60">
-            <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 bg-muted rounded"></div>
-            <span className="text-sm font-medium text-muted-foreground">Logoipsum</span>
-            </div>
-            <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
-            <span className="text-xs font-bold">L</span>
-            </div>
-            <span className="text-sm font-medium text-muted-foreground">Logoipsum</span>
-            </div>
-            <div className="text-lg font-bold text-muted-foreground">IPSUM</div>
-            <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 bg-blue-500 rounded"></div>
-            <span className="text-sm font-medium text-muted-foreground">Logoipsum</span>
-            </div>
-            </div>
+
             </div>
             </div>
             </footer>

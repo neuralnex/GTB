@@ -6,7 +6,9 @@ export function Header() {
   return (
     <header className="w-full px-6 py-4 bg-background border-b border-border">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Image src="/new%20images/logo.svg" alt={"logo"} width={78} height={78}/>
+        <Link href="/">
+          <Image src="/new%20images/logo.svg" alt={"logo"} width={78} height={78}/>
+        </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#why" className="text-muted-foreground hover:text-foreground transition-colors">

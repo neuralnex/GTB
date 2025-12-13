@@ -5,8 +5,8 @@ import './globals.css'
 
 
 export const metadata: Metadata = {
-  title: 'Zurri Ai',
-  description: 'Discover, deploy, and monetize intelligent AI agents that transform your business operations. The premier marketplace for enterprise-grade automation solutions.',
+  title: 'Global Team Builders - Your Fastest Route to Wealth, Health & Global Success',
+  description: 'Join Global Team Builders partnered with S.B.I. Your fastest route to wealth, health & global success. Tap into the revolutionary Stem Cell Activator movement.',
 }
 
 
