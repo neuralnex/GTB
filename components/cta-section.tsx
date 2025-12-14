@@ -51,7 +51,7 @@ export function CTASection() {
             size="lg"
             className="bg-[#14532D] hover:bg-[#047857] text-white text-lg px-12 py-4 rounded-full font-semibold"
           >
-            Sign Up Free
+            Join Now
           </Button>
         </Link>
       </div>

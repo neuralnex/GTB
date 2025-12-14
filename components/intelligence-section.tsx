@@ -82,7 +82,7 @@ export function IntelligenceSection() {
 
             <Link href="/signup">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full">
-                Sign Up Free
+                Join Now
               </Button>
             </Link>
           </div>

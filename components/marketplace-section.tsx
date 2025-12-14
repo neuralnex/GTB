@@ -34,8 +34,8 @@ export function MarketplaceSection() {
                 <h3 className="font-semibold text-white text-xl mb-4">Activation Steps</h3>
                 <div className="text-white/90 text-sm mb-4 space-y-2">
                   <p className="block">Registration: Free</p>
-                  <p className="block">Activate Your Account: Buy Two Downlines at ₦52,000 or $37</p>
-                  <p className="block">Processing Fee: ₦5,000 or $4</p>
+                  <p className="block">Activate Your Account: Buy Two Downlines at ₦52,000</p>
+                  <p className="block">Processing Fee: ₦5,000</p>
                 </div>
                 <p className="text-white font-semibold mb-4">
                   This one-time activation unlocks your earnings, awards in S.B.I, and full access to the Global Team Builders automated system.

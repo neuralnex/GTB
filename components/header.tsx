@@ -21,9 +21,9 @@ export function Header() {
           <a href="#why" className="text-muted-foreground hover:text-foreground transition-colors">
             Why Us
           </a>
-          <a href="#activation" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/activation" className="text-muted-foreground hover:text-foreground transition-colors">
             Activation
-          </a>
+          </Link>
           <a href="#earnings" className="text-muted-foreground hover:text-foreground transition-colors">
             Earnings
           </a>
@@ -35,7 +35,7 @@ export function Header() {
         <div className="flex items-center space-x-4">
           <Link href="/signup">
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6">
-              Sign Up
+              Join Now
             </Button>
           </Link>
         </div>

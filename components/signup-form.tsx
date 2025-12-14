@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -14,6 +15,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export function SignupForm() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -29,14 +31,58 @@ export function SignupForm() {
     age: "",
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null
+    message: string
+  }>({ type: null, message: "" })
+
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
+    if (submitStatus.type) {
+      setSubmitStatus({ type: null, message: "" })
+    }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
+    setIsSubmitting(true)
+    setSubmitStatus({ type: null, message: "" })
+
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        localStorage.setItem("userData", JSON.stringify(formData))
+        setSubmitStatus({
+          type: "success",
+          message: "Registration successful! Redirecting to activation page...",
+        })
+        setTimeout(() => {
+          router.push("/activation")
+        }, 1500)
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.message || "Failed to submit form. Please try again.",
+        })
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "An error occurred. Please check your connection and try again.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -54,7 +100,6 @@ export function SignupForm() {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Name */}
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-foreground font-semibold">
                     Name <span className="text-[#7F1D1D]">*</span>
@@ -70,7 +115,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* Username */}
                 <div className="space-y-2">
                   <Label htmlFor="username" className="text-foreground font-semibold">
                     Username <span className="text-[#7F1D1D]">*</span>
@@ -86,7 +130,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* Phone Number */}
                 <div className="space-y-2">
                   <Label htmlFor="phoneNumber" className="text-foreground font-semibold">
                     Phone Number <span className="text-[#7F1D1D]">*</span>
@@ -102,7 +145,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* Email Address */}
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-foreground font-semibold">
                     Email Address <span className="text-[#7F1D1D]">*</span>
@@ -118,7 +160,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* Address */}
                 <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="address" className="text-foreground font-semibold">
                     Address <span className="text-[#7F1D1D]">*</span>
@@ -134,7 +175,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* City */}
                 <div className="space-y-2">
                   <Label htmlFor="city" className="text-foreground font-semibold">
                     City <span className="text-[#7F1D1D]">*</span>
@@ -150,7 +190,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* State */}
                 <div className="space-y-2">
                   <Label htmlFor="state" className="text-foreground font-semibold">
                     State <span className="text-[#7F1D1D]">*</span>
@@ -166,7 +205,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* Gender */}
                 <div className="space-y-2">
                   <Label htmlFor="gender" className="text-foreground font-semibold">
                     Gender <span className="text-[#7F1D1D]">*</span>
@@ -187,7 +225,6 @@ export function SignupForm() {
                   </Select>
                 </div>
 
-                {/* Age */}
                 <div className="space-y-2">
                   <Label htmlFor="age" className="text-foreground font-semibold">
                     Age <span className="text-[#7F1D1D]">*</span>
@@ -204,7 +241,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* Bank Name */}
                 <div className="space-y-2">
                   <Label htmlFor="bankName" className="text-foreground font-semibold">
                     Bank Name <span className="text-[#7F1D1D]">*</span>
@@ -220,7 +256,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* Account Name */}
                 <div className="space-y-2">
                   <Label htmlFor="accountName" className="text-foreground font-semibold">
                     Account Name <span className="text-[#7F1D1D]">*</span>
@@ -236,7 +271,6 @@ export function SignupForm() {
                   />
                 </div>
 
-                {/* Account Number */}
                 <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="accountNumber" className="text-foreground font-semibold">
                     Account Number <span className="text-[#7F1D1D]">*</span>
@@ -253,12 +287,25 @@ export function SignupForm() {
                 </div>
               </div>
 
+              {submitStatus.type && (
+                <div
+                  className={`p-4 rounded-lg ${
+                    submitStatus.type === "success"
+                      ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                      : "bg-red-500/10 border border-red-500/20 text-red-400"
+                  }`}
+                >
+                  <p className="text-sm font-medium">{submitStatus.message}</p>
+                </div>
+              )}
+
               <div className="pt-4">
                 <Button
                   type="submit"
-                  className="w-full bg-[#14532D] hover:bg-[#047857] text-white text-lg py-6 rounded-full font-semibold shadow-lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#14532D] hover:bg-[#047857] disabled:opacity-50 disabled:cursor-not-allowed text-white text-lg py-6 rounded-full font-semibold shadow-lg"
                 >
-                  Sign Up Now
+                  {isSubmitting ? "Submitting..." : "Join Now"}
                 </Button>
               </div>
 

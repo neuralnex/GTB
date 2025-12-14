@@ -17,38 +17,38 @@ export function FeaturesSection() {
             <div className="space-y-5 mb-8">
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
-                  <Image src="/icons/all-in-one.svg" alt="Team support icon" width={20} height={20} />
+                  <Image src="/icons/all-in-one.svg" alt="Team support icon" width={20} height={20} style={{ width: "auto", height: "auto" }} />
                 </div>
                 <p className="text-muted-foreground text-lg">With Global Team Builders, you're not alone.</p>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
-                  <Image src="/icons/built-in.svg" alt="No stress icon" width={20} height={20} />
+                  <Image src="/icons/built-in.svg" alt="No stress icon" width={20} height={20} style={{ width: "auto", height: "auto" }} />
                 </div>
                 <p className="text-muted-foreground text-lg">No need to stress about building a team.</p>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
-                  <Image src="/icons/rich-responsive.svg" alt="Support icon" width={20} height={20} />
+                  <Image src="/icons/rich-responsive.svg" alt="Support icon" width={20} height={20} style={{ width: "auto", height: "auto" }} />
                 </div>
                 <p className="text-muted-foreground text-lg">No previous experience required.</p>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
-                  <Image src="/icons/built-for-creators.svg" alt="Global reach icon" width={20} height={20} />
+                  <Image src="/icons/built-for-creators.svg" alt="Global reach icon" width={20} height={20} style={{ width: "auto", height: "auto" }} />
                 </div>
                 <p className="text-muted-foreground text-lg">Your Starter package registration in Straight Business Integrated (SBI) is done for you at no cost.</p>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
-                  <Image src="/icons/built-for-creators.svg" alt="Global reach icon" width={20} height={20} />
+                  <Image src="/icons/built-for-creators.svg" alt="Global reach icon" width={20} height={20} style={{ width: "auto", height: "auto" }} />
                 </div>
                 <p className="text-muted-foreground text-lg">We build your team globally while you earn and win awards.</p>
               </div>
             </div>
             <Link href="/signup">
               <Button className="bg-[#14532D] hover:bg-[#047857] text-white px-8 py-3 rounded-full">
-                Sign Up Free
+                Join Now
               </Button>
             </Link>
           </div>

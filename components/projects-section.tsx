@@ -78,7 +78,7 @@ export function ProjectsSection() {
 
             <Link href="/signup">
               <Button className="bg-[#14532D] hover:bg-[#047857] text-white px-8 py-3 rounded-full">
-                Sign Up Free
+                Join Now
               </Button>
             </Link>
           </div>
