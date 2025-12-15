@@ -27,7 +27,7 @@ next-env.d.ts
 
 # data files
 /data/
-*.xlsx
+#*.xlsx
 
 # environment variables
 .env
