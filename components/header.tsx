@@ -8,7 +8,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image 
-            src="/new%20images/logo.svg" 
+            src="/new-images/logo.svg" 
             alt="Global Team Builders Logo" 
             width={78} 
             height={78}

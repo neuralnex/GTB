@@ -7,13 +7,15 @@ import { IntelligenceSection } from "@/components/intelligence-section"
 import { PaymentsSection } from "@/components/payments-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
+import FeaturesSection2 from "@/components/features-section"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
+      <FeaturesSection2 />
       <MarketplaceSection />
       <ProjectsSection />
       <IntelligenceSection />
