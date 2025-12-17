@@ -7,7 +7,7 @@ export function getRedisClient(): Redis {
     return redis
   }
 
-  const redisUrl = process.env.REDIS_URL || 'redis://default:zfTVPsWfq7rK1EgEjujMz3yrgqSVkNkO@redis-18335.c278.us-east-1-4.ec2.cloud.redislabs.com:18335'
+  const redisUrl = process.env.REDIS_URL || ''
   
   redis = new Redis(redisUrl, {
     maxRetriesPerRequest: 3,
