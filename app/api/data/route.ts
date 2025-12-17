@@ -1,34 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
-import * as XLSX from 'xlsx'
-import { readFile, writeFile, mkdir } from 'fs/promises'
-import { existsSync } from 'fs'
-import path from 'path'
+import { kv } from '@vercel/kv'
+
+interface SignupRow {
+  Timestamp?: string
+  Name?: string
+  Username?: string
+  'Phone Number'?: string
+  'Email Address'?: string
+  Address?: string
+  City?: string
+  State?: string
+  Gender?: string
+  Age?: string
+  'Bank Name'?: string
+  'Account Name'?: string
+  'Account Number'?: string
+}
 
 export async function GET(request: NextRequest) {
   try {
-    const excelDir = path.join(process.cwd(), 'data')
-    const excelFilePath = path.join(excelDir, 'signups.xlsx')
-
-    if (!existsSync(excelFilePath)) {
-      return NextResponse.json(
-        { 
-          success: false, 
-          message: 'No data file found.',
-          data: []
-        },
-        { status: 404 }
-      )
-    }
-
-    const fileBuffer = await readFile(excelFilePath)
-    const workbook = XLSX.read(fileBuffer, { type: 'buffer' })
-    
-    const sheetName = workbook.SheetNames.includes('Signups') 
-      ? 'Signups' 
-      : workbook.SheetNames[0] || 'Signups'
-    
-    const worksheet = workbook.Sheets[sheetName]
-    const data = XLSX.utils.sheet_to_json(worksheet)
+    const data = await kv.get<SignupRow[]>('signups') || []
 
     return NextResponse.json(
       { 
@@ -40,11 +31,11 @@ export async function GET(request: NextRequest) {
       { status: 200 }
     )
   } catch (error) {
-    console.error('Error reading Excel file:', error)
+    console.error('Error reading data:', error)
     return NextResponse.json(
       { 
         success: false, 
-        message: 'Failed to read data file.',
+        message: 'Failed to read data.',
         error: error instanceof Error ? error.message : 'Unknown error',
         data: []
       },
@@ -79,28 +70,7 @@ export async function DELETE(request: NextRequest) {
       )
     }
 
-    const excelDir = path.join(process.cwd(), 'data')
-    const excelFilePath = path.join(excelDir, 'signups.xlsx')
-
-    if (!existsSync(excelFilePath)) {
-      return NextResponse.json(
-        { 
-          success: false, 
-          message: 'No data file found.'
-        },
-        { status: 404 }
-      )
-    }
-
-    const fileBuffer = await readFile(excelFilePath)
-    const workbook = XLSX.read(fileBuffer, { type: 'buffer' })
-    
-    const sheetName = workbook.SheetNames.includes('Signups') 
-      ? 'Signups' 
-      : workbook.SheetNames[0] || 'Signups'
-    
-    const worksheet = workbook.Sheets[sheetName]
-    const data = XLSX.utils.sheet_to_json(worksheet)
+    const data = await kv.get<SignupRow[]>('signups') || []
 
     if (rowIndex >= data.length) {
       return NextResponse.json(
@@ -115,13 +85,8 @@ export async function DELETE(request: NextRequest) {
     // Remove the row at the specified index
     data.splice(rowIndex, 1)
 
-    // Create new worksheet with updated data
-    const newWorksheet = XLSX.utils.json_to_sheet(data)
-    workbook.Sheets[sheetName] = newWorksheet
-
-    // Write back to file
-    const excelBuffer = XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' })
-    await writeFile(excelFilePath, excelBuffer)
+    // Save back to KV
+    await kv.set('signups', data)
 
     return NextResponse.json(
       { 
@@ -132,7 +97,7 @@ export async function DELETE(request: NextRequest) {
       { status: 200 }
     )
   } catch (error) {
-    console.error('Error deleting from Excel file:', error)
+    console.error('Error deleting row:', error)
     return NextResponse.json(
       { 
         success: false, 

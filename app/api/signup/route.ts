@@ -1,19 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import * as XLSX from 'xlsx'
-import { writeFile, mkdir, readFile } from 'fs/promises'
-import { existsSync } from 'fs'
-import path from 'path'
+import { kv } from '@vercel/kv'
 
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.json()
-
-    const excelDir = path.join(process.cwd(), 'data')
-    const excelFilePath = path.join(excelDir, 'signups.xlsx')
-
-    if (!existsSync(excelDir)) {
-      await mkdir(excelDir, { recursive: true })
-    }
 
     const newRow = {
       'Timestamp': new Date().toISOString(),
@@ -31,35 +21,14 @@ export async function POST(request: NextRequest) {
       'Account Number': formData.accountNumber || '',
     }
 
-    let workbook: XLSX.WorkBook
-    let worksheet: XLSX.WorkSheet
-
-    if (existsSync(excelFilePath)) {
-      const fileBuffer = await readFile(excelFilePath)
-      workbook = XLSX.read(fileBuffer, { type: 'buffer' })
-      
-      const sheetName = workbook.SheetNames.includes('Signups') 
-        ? 'Signups' 
-        : workbook.SheetNames[0] || 'Signups'
-      worksheet = workbook.Sheets[sheetName] || XLSX.utils.aoa_to_sheet([])
-    } else {
-      workbook = XLSX.utils.book_new()
-      worksheet = XLSX.utils.json_to_sheet([newRow])
-      XLSX.utils.book_append_sheet(workbook, worksheet, 'Signups')
-    }
-
-    const existingData = XLSX.utils.sheet_to_json(worksheet)
-    existingData.push(newRow)
-
-    const newWorksheet = XLSX.utils.json_to_sheet(existingData)
+    // Get existing data from KV
+    const existingData = await kv.get<typeof newRow[]>('signups') || []
     
-    workbook.Sheets['Signups'] = newWorksheet
-    if (!workbook.SheetNames.includes('Signups')) {
-      workbook.SheetNames[0] = 'Signups'
-    }
-
-    const excelBuffer = XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' })
-    await writeFile(excelFilePath, excelBuffer)
+    // Add new row
+    existingData.push(newRow)
+    
+    // Save back to KV
+    await kv.set('signups', existingData)
 
     return NextResponse.json(
       { 
@@ -70,15 +39,21 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     )
   } catch (error) {
-    console.error('Error saving to Excel:', error)
+    console.error('Error saving signup:', error)
+    
+    // Provide helpful error message for missing KV configuration
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    const isKvError = errorMessage.includes('KV') || errorMessage.includes('redis') || errorMessage.includes('connection')
+    
     return NextResponse.json(
       { 
         success: false, 
-        message: 'Failed to submit form. Please try again.',
-        error: error instanceof Error ? error.message : 'Unknown error'
+        message: isKvError 
+          ? 'Database not configured. Please set up Vercel KV in your Vercel project settings.'
+          : 'Failed to submit form. Please try again.',
+        error: errorMessage
       },
       { status: 500 }
     )
   }
 }
-
