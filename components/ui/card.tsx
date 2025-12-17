@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+function Card({ className, style, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card"
@@ -10,6 +10,20 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
         "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
         className
       )}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1.5rem",
+        borderRadius: "0.75rem",
+        borderWidth: "1px",
+        borderStyle: "solid",
+        paddingTop: "1.5rem",
+        paddingBottom: "1.5rem",
+        boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        willChange: "transform, box-shadow",
+        ...style,
+      }}
       {...props}
     />
   )

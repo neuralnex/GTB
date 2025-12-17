@@ -15,6 +15,9 @@ export function Footer() {
                 width={78} 
                 height={78}
                 className="object-contain"
+                style={{
+                  filter: "brightness(0) invert(1)",
+                }}
               />
             </Link>
             </div>
@@ -42,16 +45,16 @@ export function Footer() {
             </div>
 
             <div>
-            <h3 className="font-semibold text-foreground mb-4">Link</h3>
+            <h3 className="font-semibold text-foreground mb-4">Contact</h3>
             <div className="space-y-3">
-            <a href="#" className="block text-muted-foreground hover:text-foreground text-sm transition-colors">
-            Support
+            <a href="mailto:globalteambuilderscommunity@gmail.com" className="block text-muted-foreground hover:text-foreground text-sm transition-colors">
+            Email: globalteambuilderscommunity@gmail.com
+            </a>
+            <a href="https://wa.me/2348166052985" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground text-sm transition-colors">
+            WhatsApp: 08166052985
             </a>
             <a href="#" className="block text-muted-foreground hover:text-foreground text-sm transition-colors">
             Document
-            </a>
-            <a href="#" className="block text-muted-foreground hover:text-foreground text-sm transition-colors">
-            Legal
             </a>
             </div>
             </div>

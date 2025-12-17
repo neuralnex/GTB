@@ -8,7 +8,7 @@ import Link from "next/link"
 
 export default function ActivationPage() {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "2347015074213"
+    const phoneNumber = "2348166052985"
     const message = encodeURIComponent("I have made payment for account activation. Here is my proof of payment.")
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }
@@ -33,21 +33,25 @@ export default function ActivationPage() {
                   
                   <div className="bg-[#0F172A] rounded-lg p-6 space-y-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-lg text-muted-foreground">Buy Two Team members:</span>
-                      <span className="text-xl font-bold text-foreground">₦52,000</span>
-                    </div>
-                    
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg text-muted-foreground">Processing fee:</span>
-                      <span className="text-xl font-bold text-foreground">₦5,000</span>
+                      <span className="text-lg text-muted-foreground">Buy Two Downlines:</span>
+                      <span className="text-xl font-bold text-foreground">₦60,000</span>
                     </div>
                     
                     <div className="border-t border-border pt-4 mt-4">
                       <div className="flex justify-between items-center">
                         <span className="text-xl font-bold text-foreground">Total:</span>
-                        <span className="text-2xl font-bold text-[#14532D]">₦57,000</span>
+                        <span className="text-2xl font-bold text-[#14532D]">₦60,000</span>
                       </div>
                     </div>
+                  </div>
+                  
+                  <div className="bg-[#14532D]/10 rounded-lg p-6 border border-[#14532D]/20">
+                    <p className="text-center text-foreground font-semibold mb-2">
+                      Activation Bonus:
+                    </p>
+                    <p className="text-center text-[#14532D] font-bold text-lg">
+                      You receive two bottles of Allimax stem cell stimulator or Dinor worth ₦60,000 as activation bonus
+                    </p>
                   </div>
                 </div>
 
@@ -79,7 +83,7 @@ export default function ActivationPage() {
                     Send proof of payment to:
                   </p>
                   <p className="text-center text-[#14532D] font-bold text-lg">
-                    WhatsApp: +2347015074213
+                    WhatsApp: 08166052985
                   </p>
                 </div>
 
