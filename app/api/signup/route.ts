@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { kv } from '@vercel/kv'
+import { getRedisClient } from '@/lib/redis'
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,14 +21,17 @@ export async function POST(request: NextRequest) {
       'Account Number': formData.accountNumber || '',
     }
 
-    // Get existing data from KV
-    const existingData = await kv.get<typeof newRow[]>('signups') || []
+    const redis = getRedisClient()
+    
+    // Get existing data from Redis
+    const existingDataJson = await redis.get('signups')
+    const existingData = existingDataJson ? JSON.parse(existingDataJson) : []
     
     // Add new row
     existingData.push(newRow)
     
-    // Save back to KV
-    await kv.set('signups', existingData)
+    // Save back to Redis
+    await redis.set('signups', JSON.stringify(existingData))
 
     return NextResponse.json(
       { 
@@ -41,16 +44,12 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error saving signup:', error)
     
-    // Provide helpful error message for missing KV configuration
     const errorMessage = error instanceof Error ? error.message : 'Unknown error'
-    const isKvError = errorMessage.includes('KV') || errorMessage.includes('redis') || errorMessage.includes('connection')
     
     return NextResponse.json(
       { 
         success: false, 
-        message: isKvError 
-          ? 'Database not configured. Please set up Vercel KV in your Vercel project settings.'
-          : 'Failed to submit form. Please try again.',
+        message: 'Failed to submit form. Please try again.',
         error: errorMessage
       },
       { status: 500 }

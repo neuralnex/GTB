@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { kv } from '@vercel/kv'
+import { getRedisClient } from '@/lib/redis'
 
 interface SignupRow {
   Timestamp?: string
@@ -19,7 +19,9 @@ interface SignupRow {
 
 export async function GET(request: NextRequest) {
   try {
-    const data = await kv.get<SignupRow[]>('signups') || []
+    const redis = getRedisClient()
+    const dataJson = await redis.get('signups')
+    const data = dataJson ? JSON.parse(dataJson) : []
 
     return NextResponse.json(
       { 
@@ -70,7 +72,9 @@ export async function DELETE(request: NextRequest) {
       )
     }
 
-    const data = await kv.get<SignupRow[]>('signups') || []
+    const redis = getRedisClient()
+    const dataJson = await redis.get('signups')
+    const data = dataJson ? JSON.parse(dataJson) : []
 
     if (rowIndex >= data.length) {
       return NextResponse.json(
@@ -85,8 +89,8 @@ export async function DELETE(request: NextRequest) {
     // Remove the row at the specified index
     data.splice(rowIndex, 1)
 
-    // Save back to KV
-    await kv.set('signups', data)
+    // Save back to Redis
+    await redis.set('signups', JSON.stringify(data))
 
     return NextResponse.json(
       { 

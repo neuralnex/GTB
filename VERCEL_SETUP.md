@@ -1,47 +1,56 @@
-# Vercel Setup Guide
+# Redis Setup Guide
 
-## Vercel KV Configuration
+This application uses Redis for data storage instead of file system, which is required for Vercel's serverless functions.
 
-This application uses Vercel KV (Redis) for data storage instead of file system, which is required for Vercel's serverless functions.
+## Setup Steps:
 
-### Setup Steps:
+### 1. Environment Variable Configuration
 
-1. **Install Vercel KV in your Vercel project:**
-   - Go to your Vercel project dashboard
-   - Navigate to **Storage** tab
-   - Click **Create Database**
-   - Select **KV** (Redis)
-   - Create the database
+Add your Redis URL as an environment variable:
 
-2. **Environment Variables:**
-   Vercel will automatically add these environment variables:
-   - `KV_URL` - Redis connection URL
-   - `KV_REST_API_URL` - REST API URL
-   - `KV_REST_API_TOKEN` - REST API token
-   - `KV_REST_API_READ_ONLY_TOKEN` - Read-only token
+**For Vercel:**
+1. Go to your Vercel project dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Add a new variable:
+   - **Name:** `REDIS_URL`
+   - **Value:** Your Redis connection string
+   - **Environment:** Production, Preview, Development (select all)
+4. Click **Save**
 
-3. **Deploy:**
-   - Push your code to GitHub
-   - Vercel will automatically deploy
-   - The form submission will now work!
+**For Local Development:**
+1. Create a `.env.local` file in the project root
+2. Add your Redis URL:
+   ```
+   REDIS_URL="redis://default:zfTVPsWfq7rK1EgEjujMz3yrgqSVkNkO@redis-18335.c278.us-east-1-4.ec2.cloud.redislabs.com:18335"
+   ```
 
-### Local Development:
+### 2. Redis Provider Options:
 
-For local development, you can either:
-- Use Vercel CLI: `vercel dev` (automatically uses your Vercel environment)
-- Or create a `.env.local` file with your KV credentials from Vercel dashboard
+You can use any Redis provider:
+- **Redis Labs** (Cloud Redis) - Already configured
+- **Upstash** - Free tier available
+- **Vercel KV** - Integrated with Vercel
+- **Self-hosted Redis** - Your own Redis instance
 
-### Migration from File System:
+### 3. Deploy:
 
-If you had data in the Excel file, you can migrate it by:
-1. Exporting the Excel data to JSON
-2. Using the admin page to manually add entries, or
-3. Creating a migration script to import the data
+1. Push your code to GitHub
+2. Make sure `REDIS_URL` is set in Vercel environment variables
+3. Vercel will automatically deploy
+4. The form submission will now work!
+
+### 4. Local Development:
+
+1. Copy `.env.example` to `.env.local`
+2. Update `REDIS_URL` with your Redis connection string
+3. Run `pnpm dev`
+4. The app will connect to your Redis instance
 
 ### Notes:
 
-- Data is now stored in Vercel KV (Redis) instead of Excel files
+- Data is stored in Redis instead of Excel files
 - All CRUD operations (Create, Read, Delete) work the same way
 - Data persists across deployments
 - No file system access needed
+- The Redis URL is already configured in the code as a fallback
 
