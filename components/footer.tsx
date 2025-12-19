@@ -59,23 +59,7 @@ export function Footer() {
             </div>
             </div>
 
-            <div>
-            <h3 className="font-semibold text-foreground mb-4">Socials Link</h3>
-            <div className="space-y-3">
-            <a href="#" className="block text-muted-foreground hover:text-foreground text-sm transition-colors">
-            Github
-            </a>
-            <a href="#" className="block text-muted-foreground hover:text-foreground text-sm transition-colors">
-            Discord
-            </a>
-            <a href="#" className="block text-muted-foreground hover:text-foreground text-sm transition-colors">
-            Linkedin
-            </a>
-            <a href="#" className="block text-muted-foreground hover:text-foreground text-sm transition-colors">
-            Instagram
-            </a>
-            </div>
-            </div>
+
             </div>
 
             <div className="border-t border-border pt-8">
