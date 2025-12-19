@@ -28,9 +28,9 @@ export default function ActivationPage() {
               <CardContent className="space-y-8">
                 <div className="bg-yellow-500/10 border-2 border-yellow-500/30 rounded-lg p-4">
                   <p className="text-yellow-600 dark:text-yellow-400 font-semibold text-sm md:text-base text-center">
-                    ⚠️ Be sure you have joined and registered before making payment,{" "}
-                    <Link href="/signup" className="underline font-bold hover:text-yellow-700 dark:hover:text-yellow-300">
-                      click HERE to join
+                    After payment Send proof of payment with your name,{" "}
+                    <Link href="#" className="underline font-bold hover:text-yellow-700 dark:hover:text-yellow-300">
+                      to WhatsApp link below
                     </Link>
                   </p>
                 </div>
@@ -43,13 +43,13 @@ export default function ActivationPage() {
                   <div className="bg-[#0F172A] rounded-lg p-6 space-y-4">
                     <div className="flex justify-between items-center">
                       <span className="text-lg text-muted-foreground">Buy Two Downlines:</span>
-                      <span className="text-xl font-bold text-foreground">₦60,000</span>
+                      <span className="text-xl font-bold text-foreground">₦60,000 or $42</span>
                     </div>
                     
                     <div className="border-t border-border pt-4 mt-4">
                       <div className="flex justify-between items-center">
                         <span className="text-xl font-bold text-foreground">Total:</span>
-                        <span className="text-2xl font-bold text-[#14532D]">₦60,000</span>
+                        <span className="text-2xl font-bold text-[#14532D]">₦60,000 or $42</span>
                       </div>
                     </div>
                   </div>

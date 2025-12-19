@@ -1,5 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 export function MarketplaceSection() {
   return (
@@ -66,7 +68,7 @@ export function MarketplaceSection() {
                 <h3 className="font-semibold text-white text-xl mb-4">Activation Steps</h3>
                 <div className="text-white/90 text-sm mb-4 space-y-2">
                   <p className="block">Registration: Free</p>
-                  <p className="block">Activate Your Account: Buy Two Downlines at ₦60,000</p>
+                  <p className="block">Activate Your Account: Buy Two Downlines at ₦60,000 or $42</p>
                 </div>
                 <p className="text-white font-semibold mb-4">
                   This one-time activation unlocks your earnings, awards in S.B.I, and full access to the Global Team Builders automated system.
@@ -77,8 +79,18 @@ export function MarketplaceSection() {
                   <p className="text-white/90 text-sm">We integrate you into our global strategy</p>
                   <p className="text-white/90 text-sm">You start earning weekly commissions</p>
                   <p className="text-white/90 text-sm">You become eligible for awards</p>
-                  <p className="text-white/90 text-sm">You receive two bottles of Allimax stem cell stimulator or Dinor worth ₦60,000 as activation bonus.</p>
+                  <p className="text-white/90 text-sm">You receive two bottles of Allimax stem cell stimulator or Dinor worth ₦60,000 or $42 as activation bonus.</p>
                   <p className="text-white font-medium mt-4">All while you watch your team grow.</p>
+                </div>
+                <div className="mt-6">
+                  <Link href="/activation">
+                    <Button
+                      size="lg"
+                      className="w-full bg-white text-[#14532D] hover:bg-white/90 font-semibold py-6 rounded-full"
+                    >
+                      Activate Now
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
