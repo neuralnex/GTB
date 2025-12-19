@@ -95,38 +95,6 @@ export function Header() {
           </a>
         </nav>
 
-        {/* Mobile Navigation Dropdown */}
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" className="text-foreground">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Open menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-48">
-            <DropdownMenuItem asChild>
-              <a href="#why" className="cursor-pointer">
-                Why Us
-              </a>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/activation" className="cursor-pointer">
-                Activation
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <a href="#earnings" className="cursor-pointer">
-                Earnings
-              </a>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <a href="#join" className="cursor-pointer">
-                Join
-              </a>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-
         <div 
           className="flex items-center space-x-4"
           style={{
@@ -154,6 +122,38 @@ export function Header() {
               Join Now
             </Button>
           </Link>
+
+          {/* Mobile Navigation Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon" className="text-foreground">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem asChild>
+                <a href="#why" className="cursor-pointer">
+                  Why Us
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/activation" className="cursor-pointer">
+                  Activation
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href="#earnings" className="cursor-pointer">
+                  Earnings
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href="#join" className="cursor-pointer">
+                  Join
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>
