@@ -26,6 +26,15 @@ export default function ActivationPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-8">
+                <div className="bg-yellow-500/10 border-2 border-yellow-500/30 rounded-lg p-4">
+                  <p className="text-yellow-600 dark:text-yellow-400 font-semibold text-sm md:text-base text-center">
+                    ⚠️ Be sure you have joined and registered before making payment,{" "}
+                    <Link href="/signup" className="underline font-bold hover:text-yellow-700 dark:hover:text-yellow-300">
+                      click HERE to join
+                    </Link>
+                  </p>
+                </div>
+                
                 <div className="text-center space-y-6">
                   <p className="text-xl md:text-2xl font-semibold text-foreground">
                     To activate your account.
@@ -63,7 +72,7 @@ export default function ActivationPage() {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center py-2 border-b border-border">
                       <span className="text-muted-foreground">Account Name:</span>
-                      <span className="text-foreground font-semibold">Onward Samba Integrated Concept Limited</span>
+                      <span className="text-foreground font-semibold text-sm md:text-base break-words text-right">Onward Samba Integrated Concept Limited</span>
                     </div>
                     
                     <div className="flex justify-between items-center py-2 border-b border-border">
@@ -74,6 +83,26 @@ export default function ActivationPage() {
                     <div className="flex justify-between items-center py-2 border-b border-border">
                       <span className="text-muted-foreground">Account Number:</span>
                       <span className="text-foreground font-semibold text-lg">1033840178</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-[#1C1C1E] rounded-lg p-6 space-y-4 border border-border">
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold text-foreground mb-4">Pay with USDT TRC 20 Wallet</h3>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center py-2 border-b border-border">
+                      <span className="text-muted-foreground">Total:</span>
+                      <span className="text-foreground font-semibold text-lg">$42</span>
+                    </div>
+                    
+                    <div className="py-2">
+                      <span className="text-muted-foreground block mb-2">Wallet Address:</span>
+                      <div className="bg-muted/50 rounded p-3 break-all">
+                        <span className="text-foreground font-mono text-xs md:text-sm">TSQKJSeNKM519nbTAJFEWg7HbvNAZY7cGq</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -91,7 +120,7 @@ export default function ActivationPage() {
                   <Button
                     size="lg"
                     onClick={handleWhatsAppClick}
-                    className="flex-1 w-full bg-[#14532D] hover:bg-[#047857] text-white text-lg px-8 py-6 rounded-full font-semibold shadow-lg"
+                    className="flex-1 w-full bg-[#14532D] hover:bg-[#047857] text-white text-sm md:text-lg px-4 md:px-8 py-4 md:py-6 rounded-full font-semibold shadow-lg whitespace-normal break-words"
                   >
                     Send Payment Proof via WhatsApp
                   </Button>

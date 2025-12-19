@@ -1,6 +1,15 @@
+"use client"
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Menu } from "lucide-react"
 
 export function Header() {
   return (
@@ -58,63 +67,65 @@ export function Header() {
           />
         </Link>
 
-        <nav 
-          className="hidden md:flex items-center space-x-8"
-          style={{
-            display: "none",
-            alignItems: "center",
-            gap: "2rem",
-          }}
-        >
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
           <a 
             href="#why" 
             className="text-muted-foreground hover:text-foreground transition-colors"
-            style={{
-              transition: "color 0.2s ease-in-out",
-              cursor: "pointer",
-              outline: "none",
-              outlineOffset: "2px",
-            }}
           >
             Why Us
           </a>
           <Link 
             href="/activation" 
             className="text-muted-foreground hover:text-foreground transition-colors"
-            style={{
-              transition: "color 0.2s ease-in-out",
-              cursor: "pointer",
-              outline: "none",
-              outlineOffset: "2px",
-            }}
           >
             Activation
           </Link>
           <a 
             href="#earnings" 
             className="text-muted-foreground hover:text-foreground transition-colors"
-            style={{
-              transition: "color 0.2s ease-in-out",
-              cursor: "pointer",
-              outline: "none",
-              outlineOffset: "2px",
-            }}
           >
             Earnings
           </a>
           <a 
             href="#join" 
             className="text-muted-foreground hover:text-foreground transition-colors"
-            style={{
-              transition: "color 0.2s ease-in-out",
-              cursor: "pointer",
-              outline: "none",
-              outlineOffset: "2px",
-            }}
           >
             Join
           </a>
         </nav>
+
+        {/* Mobile Navigation Dropdown */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild className="md:hidden">
+            <Button variant="ghost" size="icon" className="text-foreground">
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Open menu</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-48">
+            <DropdownMenuItem asChild>
+              <a href="#why" className="cursor-pointer">
+                Why Us
+              </a>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/activation" className="cursor-pointer">
+                Activation
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <a href="#earnings" className="cursor-pointer">
+                Earnings
+              </a>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <a href="#join" className="cursor-pointer">
+                Join
+              </a>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         <div 
           className="flex items-center space-x-4"
