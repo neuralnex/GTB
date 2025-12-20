@@ -88,7 +88,7 @@ export function Header() {
             Earnings
           </a>
           <a 
-            href="#join" 
+            href="/signup" 
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             Join
@@ -103,7 +103,7 @@ export function Header() {
             gap: "1rem",
           }}
         >
-          <Link href="/signup">
+          <Link href="/activation">
             <Button 
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
               style={{
@@ -119,7 +119,7 @@ export function Header() {
                 padding: "0.5rem 1.5rem",
               }}
             >
-              Join Now
+              Activate Now
             </Button>
           </Link>
 

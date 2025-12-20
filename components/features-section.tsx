@@ -20,7 +20,7 @@ export function FeaturesSection() {
                   <Image src="/icons/all-in-one.svg" alt="Team support icon" width={20} height={20} style={{ width: "auto", height: "auto" }} />
                 </div>
                 <p className="text-muted-foreground text-lg">With Global Team Builders, you're not alone.</p>
-              </div>
+            </div>
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
                   <Image src="/icons/built-in.svg" alt="No stress icon" width={20} height={20} style={{ width: "auto", height: "auto" }} />
@@ -49,7 +49,7 @@ export function FeaturesSection() {
             <Link href="/signup">
               <Button className="bg-[#14532D] hover:bg-[#047857] text-white px-8 py-3 rounded-full">
                 Join Now
-              </Button>
+            </Button>
             </Link>
           </div>
 

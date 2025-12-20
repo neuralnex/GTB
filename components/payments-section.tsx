@@ -50,28 +50,28 @@ export function PaymentsSection() {
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center mt-1">
                   <span className="text-[#14532D] font-bold">•</span>
-                </div>
-                <span className="text-muted-foreground text-lg">Enhances natural healing</span>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 flex items-center justify-center mt-1">
-                  <span className="text-[#14532D] font-bold">•</span>
-                </div>
-                <span className="text-muted-foreground text-lg">Slows aging and promotes youthful health</span>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 flex items-center justify-center mt-1">
-                  <span className="text-[#14532D] font-bold">•</span>
-                </div>
-                <span className="text-muted-foreground text-lg">Improves organ function and cellular repair</span>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 flex items-center justify-center mt-1">
-                  <span className="text-[#14532D] font-bold">•</span>
-                </div>
-                <span className="text-muted-foreground text-lg">Supports overall wellness and longevity</span>
-              </div>
             </div>
+                <span className="text-muted-foreground text-lg">Enhances natural healing</span>
+          </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-6 h-6 flex items-center justify-center mt-1">
+                  <span className="text-[#14532D] font-bold">•</span>
+                    </div>
+                <span className="text-muted-foreground text-lg">Slows aging and promotes youthful health</span>
+                  </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-6 h-6 flex items-center justify-center mt-1">
+                  <span className="text-[#14532D] font-bold">•</span>
+                      </div>
+                <span className="text-muted-foreground text-lg">Improves organ function and cellular repair</span>
+                    </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-6 h-6 flex items-center justify-center mt-1">
+                  <span className="text-[#14532D] font-bold">•</span>
+                      </div>
+                <span className="text-muted-foreground text-lg">Supports overall wellness and longevity</span>
+                    </div>
+                  </div>
             <p className="text-muted-foreground text-lg font-medium">
               Stem cell technology is ranked among today's top breakthroughs in global healthcare.
             </p>
@@ -79,9 +79,9 @@ export function PaymentsSection() {
             <Link href="/signup">
               <Button className="bg-[#14532D] hover:bg-[#047857] text-white px-8 py-3 rounded-full text-lg">
                 Join Now
-              </Button>
+                  </Button>
             </Link>
-          </div>
+                </div>
 
           <div className="relative">
             <div className="rounded-2xl overflow-hidden">

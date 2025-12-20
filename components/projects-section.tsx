@@ -27,14 +27,14 @@ export function ProjectsSection() {
                   <span className="text-[#14532D] font-bold">•</span>
                 </div>
                 <p className="text-muted-foreground text-lg">Cash Awards</p>
-              </div>
+            </div>
 
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
                   <span className="text-[#14532D] font-bold">•</span>
                 </div>
                 <p className="text-muted-foreground text-lg">Electronics Rewards (phones, laptops, gadgets, etc)</p>
-              </div>
+                </div>
 
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
@@ -48,7 +48,7 @@ export function ProjectsSection() {
                   <span className="text-[#14532D] font-bold">•</span>
                 </div>
                 <p className="text-muted-foreground text-lg">Car Awards</p>
-              </div>
+                </div>
 
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
@@ -62,7 +62,7 @@ export function ProjectsSection() {
                   <span className="text-[#14532D] font-bold">•</span>
                 </div>
                 <p className="text-muted-foreground text-lg">Bungalow House Awards</p>
-              </div>
+                </div>
 
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
@@ -79,7 +79,7 @@ export function ProjectsSection() {
             <Link href="/signup">
               <Button className="bg-[#14532D] hover:bg-[#047857] text-white px-8 py-3 rounded-full">
                 Join Now
-              </Button>
+            </Button>
             </Link>
           </div>
 

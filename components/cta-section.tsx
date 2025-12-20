@@ -44,15 +44,15 @@ export function CTASection() {
           </p>
           <p className="text-xl md:text-2xl text-white font-bold mt-6">
             Welcome to Global Team Builders, Where Your Success is Built for You.
-          </p>
+        </p>
         </div>
         <Link href="/signup">
-          <Button
-            size="lg"
+        <Button
+          size="lg"
             className="bg-[#14532D] hover:bg-[#047857] text-white text-lg px-12 py-4 rounded-full font-semibold"
-          >
+        >
             Join Now
-          </Button>
+        </Button>
         </Link>
       </div>
     </section>
