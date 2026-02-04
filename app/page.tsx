@@ -5,6 +5,7 @@ import { MarketplaceSection } from "@/components/marketplace-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { IntelligenceSection } from "@/components/intelligence-section"
 import { PaymentsSection } from "@/components/payments-section"
+import { RavellaSection } from "@/components/ravella-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ProjectsSection />
       <IntelligenceSection />
       <PaymentsSection />
+      <RavellaSection />
       <CTASection />
       <Footer />
     </div>

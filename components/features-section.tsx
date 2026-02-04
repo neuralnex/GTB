@@ -37,7 +37,7 @@ export function FeaturesSection() {
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
                   <Image src="/icons/built-for-creators.svg" alt="Global reach icon" width={20} height={20} style={{ width: "auto", height: "auto" }} />
                 </div>
-                <p className="text-muted-foreground text-lg">Your Starter package registration in Straight Business Integrated (SBI) is done for you at no cost.</p>
+                <p className="text-muted-foreground text-lg">We will activate your account for free in one of our anchor programs the moment you buy your two Downlines</p>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
