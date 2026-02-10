@@ -43,13 +43,13 @@ export default function ActivationPage() {
                   <div className="bg-[#0F172A] rounded-lg p-6 space-y-4">
                     <div className="flex justify-between items-center">
                       <span className="text-lg text-muted-foreground">Buy Two Downlines:</span>
-                      <span className="text-xl font-bold text-foreground">₦60,000 or $42</span>
+                      <span className="text-xl font-bold text-foreground">₦65,000 or $45</span>
                     </div>
                     
                     <div className="border-t border-border pt-4 mt-4">
                       <div className="flex justify-between items-center">
                         <span className="text-xl font-bold text-foreground">Total:</span>
-                        <span className="text-2xl font-bold text-[#14532D]">₦60,000 or $42</span>
+                        <span className="text-2xl font-bold text-[#14532D]">₦65,000 or $45</span>
                       </div>
                     </div>
                   </div>
@@ -59,7 +59,7 @@ export default function ActivationPage() {
                       Activation Bonus:
                     </p>
                     <p className="text-center text-[#14532D] font-bold text-lg">
-                      You receive two bottles of Allimax stem cell stimulator or Dinor worth ₦60,000 as activation bonus
+                      You receive two bottles of Allimax stem cell stimulator or Dinor worth ₦65,000 as activation bonus
                     </p>
                   </div>
                 </div>
